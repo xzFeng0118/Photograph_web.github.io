@@ -98,20 +98,19 @@ function Home({
       {/* 新的区域 - 宽度为整个网页，高度与轮播一样 */}
       <div className="w-screen h-[40rem] relative overflow-hidden">
         {/* 左侧背景图+小轮播，flex居中 */}
-        <div className="absolute left-0 top-0 w-1/2 h-full flex items-center justify-center">
+        <div className="absolute left-70 top-0 w-1/2 h-full flex items-center justify-center">
           <img
             src="/images/Fujixt50.jpg"
             alt="Fuji X-T50 Camera"
-            className="absolute w-full h-full object-cover"
-            style={{ zIndex: 0 }}
+            className="h-full rounded-2xl object-cover"
+            style={{ maxWidth: "60rem" }}
           />
           <div className="w-full h-full flex items-center justify-center">
             <div
               style={{
                 width: "28rem",
-                height: "19rem",
-                marginLeft: "-13.3rem",
-                marginTop: "12.5rem",
+                height: "18rem",
+                transform: "translate(-180%, 34.5%)",
               }}
               className="relative z-10 flex items-center justify-center"
             >
@@ -283,7 +282,7 @@ function Home({
       {/* 新增空白区域：与春夏秋冬区域同高 */}
       <div className="w-screen h-[40rem] bg-white flex items-center justify-between px-24">
         {/* 左侧标题和按钮 */}
-        <div className="flex flex-col items-center justify-center h-[25.6rem] w-[18rem] ml-56">
+        <div className="flex flex-col items-center justify-center h-[25.6rem] w-[18rem] ml-80">
           <div className="text-center space-y-6">
             <div>
               <h2 className="text-5xl font-bold text-gray-900 mb-2">Sunset</h2>
@@ -296,7 +295,7 @@ function Home({
         {/* 右侧图片及小轮播 */}
         <div
           className="relative h-full flex items-center justify-center"
-          style={{ maxWidth: "48rem", width: "100%" }}
+          style={{ maxWidth: "48rem", width: "100%", transform: "translateX(-15rem)" }}
         >
           {/* 小型轮播叠加在图片上方 */}
           <div
