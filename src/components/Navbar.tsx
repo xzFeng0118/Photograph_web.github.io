@@ -19,7 +19,7 @@ const Navbar = () => (
             <Link to="/gallery" className="text-gray-700 hover:text-blue-600 font-medium transition">Gallery</Link>
             <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition">About</Link>
             {/* <Link to="/manage" className="text-gray-700 hover:text-blue-600 font-medium transition">Manage</Link> */}
-            <a href="#service" className="text-gray-700 hover:text-blue-600 font-medium transition">Service</a>
+            <Link to="/service" className="text-gray-700 hover:text-blue-600 font-medium transition">Service</Link>
             <a href="#store" className="text-gray-700 hover:text-blue-600 font-medium transition">Store</a>
           </div>
         </div>

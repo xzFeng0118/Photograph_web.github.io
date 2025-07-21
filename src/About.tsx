@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar'
+import Footer from "./components/Footer";
 
 const About = () => (
   <div>
@@ -21,6 +22,7 @@ const About = () => (
         </div>
       </div>
     </section>
+    <Footer />
   </div>
 );
 

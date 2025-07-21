@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import ImageManager from "./components/ImageManager";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
+import Service from "./Service"; // 新增
 
 const images = [
   "/images/000380330011.jpg",
@@ -484,6 +485,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
           <Route path="/manage" element={<ImageManager />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route
