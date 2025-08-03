@@ -5,9 +5,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer style={{
-      width: '100vw',
-      left: 0,
-      right: 0,
+      width: '100%',
       position: 'relative',
       background: 'linear-gradient(90deg, #3e2723 0%, #795548 100%)',
       color: '#fff',
@@ -17,9 +15,6 @@ const Footer: React.FC = () => {
       fontSize: '1rem',
       letterSpacing: '0.05em',
       boxShadow: '0 -2px 12px rgba(60,40,20,0.12)',
-      marginTop: 'auto',
-      marginLeft: 'calc(50% - 50vw)',
-      marginRight: 'calc(50% - 50vw)',
     }}>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
         <div style={{fontWeight: 600, fontSize: '1.1rem'}}>Photograph Web © {new Date().getFullYear()} by James Feng</div>

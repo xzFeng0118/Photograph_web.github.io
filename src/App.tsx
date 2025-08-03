@@ -172,7 +172,7 @@ function Home({
               <h2 className="text-5xl font-bold text-gray-900 mb-2">
                 Digital Photography
               </h2>
-              <p className="text-xl text-gray-600">by Fujifilm X-T50</p>
+              
             </div>
             <button className="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium text-lg">
               Browse All
