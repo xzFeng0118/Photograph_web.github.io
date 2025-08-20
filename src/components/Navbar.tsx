@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -39,7 +39,7 @@ const Navbar = () => {
               <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition">About</Link>
               {/* <Link to="/manage" className="text-gray-700 hover:text-blue-600 font-medium transition">Manage</Link> */}
               <Link to="/service" className="text-gray-700 hover:text-blue-600 font-medium transition">Service</Link>
-              <a href="#store" className="text-gray-700 hover:text-blue-600 font-medium transition">Store</a>
+              <Link to="/store" className="text-gray-700 hover:text-blue-600 font-medium transition">Store</Link>
             </div>
           </div>
           {/* Right Side (for future login) */}
