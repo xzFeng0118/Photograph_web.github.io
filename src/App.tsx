@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import Navbar from "./components/Navbar";
 import ImageManager from "./components/ImageManager";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
+import Service from "./Service"; // 新增
+import Store from "./Store";
 
 const images = [
   "/images/000380330011.jpg",
@@ -39,11 +41,7 @@ function Home({
       (digitalCurrent - 1 + digitalImages.length) % digitalImages.length
     );
 
-  const [filmCurrent, setFilmCurrent] = useState(0);
-  const nextFilmImage = () =>
-    setFilmCurrent((filmCurrent + 1) % filmImages.length);
-  const prevFilmImage = () =>
-    setFilmCurrent((filmCurrent - 1 + filmImages.length) % filmImages.length);
+  // Removed unused film carousel state and handlers
   return (
     <div>
       <Navbar />
@@ -171,7 +169,7 @@ function Home({
               <h2 className="text-5xl font-bold text-gray-900 mb-2">
                 Digital Photography
               </h2>
-              <p className="text-xl text-gray-600">by Fujifilm X-T50</p>
+              
             </div>
             <button className="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium text-lg">
               Browse All
@@ -484,6 +482,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/store" element={<Store />} />
           <Route path="/manage" element={<ImageManager />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route
