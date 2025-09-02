@@ -44,7 +44,12 @@ const Navbar = () => {
           </div>
           {/* Right Side (for future login) */}
           <div className="flex items-center space-x-4">
-            {/* 预留登录区域 */}
+            <Link
+              to="/login"
+              className="text-gray-700 hover:text-blue-600 font-medium underline underline-offset-4"
+            >
+              Login
+            </Link>
           </div>
         </div>
       </div>

@@ -6,7 +6,10 @@ import ImageManager from "./components/ImageManager";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
 import Service from "./Service"; // 新增
+import Login from "./components/Login";
 import Store from "./Store";
+import Register from "./components/Register";
+import ForgotPassword from "./components/ForgotPassword";
 
 const images = [
   "/images/000380330011.jpg",
@@ -484,6 +487,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
           <Route path="/store" element={<Store />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/manage" element={<ImageManager />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route
