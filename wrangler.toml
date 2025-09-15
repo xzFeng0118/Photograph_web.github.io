@@ -1,0 +1,12 @@
+name = "photograph-auth"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "photograph_web"
+database_id = "0f103897-4769-4808-8d5e-928ff12a82a4"
+
+[vars]
+JWT_SECRET = "please-change-me"

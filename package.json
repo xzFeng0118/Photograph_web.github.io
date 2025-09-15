@@ -5,13 +5,23 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:server": "node server/index.mjs",
+    "dev:all": "concurrently \"npm run dev:server\" \"npm run dev\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:auth": "wrangler deploy",
+    "d1:local": "wrangler d1 execute photograph_web --local --file=./schema.sql",
+    "d1:remote": "wrangler d1 execute photograph_web --file=./schema.sql"
   },
   "dependencies": {
+    "@cloudflare/workers-types": "^4.20250913.0",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3"
