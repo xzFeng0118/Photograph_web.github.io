@@ -19,7 +19,7 @@ const Login = () => {
       localStorage.setItem('auth_user', JSON.stringify(user));
       window.location.href = '/';
     } catch (e: any) {
-      const message = e?.response?.data?.message || '登录失败';
+      const message = e?.response?.data?.message || 'Login failed';
       setError(message);
     } finally {
       setLoading(false);

@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 0); // 只要不在页面最顶部就触发
     };
+
+    // Check user login status
+    const authUser = localStorage.getItem('auth_user');
+    if (authUser) {
+      setUser(JSON.parse(authUser));
+    }
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -37,19 +44,53 @@ const Navbar = () => {
             <div className="flex space-x-8">
               <Link to="/gallery" className="text-gray-700 hover:text-blue-600 font-medium transition">Gallery</Link>
               <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition">About</Link>
-              {/* <Link to="/manage" className="text-gray-700 hover:text-blue-600 font-medium transition">Manage</Link> */}
+              {user && (
+                <Link to="/manage" className="text-gray-700 hover:text-blue-600 font-medium transition">Manage</Link>
+              )}
               <Link to="/service" className="text-gray-700 hover:text-blue-600 font-medium transition">Service</Link>
               <Link to="/store" className="text-gray-700 hover:text-blue-600 font-medium transition">Store</Link>
             </div>
           </div>
-          {/* Right Side (for future login) */}
+          {/* Right Side - User Menu */}
           <div className="flex items-center space-x-4">
-            <Link
-              to="/login"
-              className="text-gray-700 hover:text-blue-600 font-medium underline underline-offset-4"
-            >
-              Login
-            </Link>
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/profile"
+                  className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium transition"
+                >
+                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                    {user.email.charAt(0).toUpperCase()}
+                  </div>
+                  <span>Profile</span>
+                </Link>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('auth_token');
+                    localStorage.removeItem('auth_user');
+                    window.location.href = '/';
+                  }}
+                  className="text-gray-700 hover:text-red-600 font-medium underline underline-offset-4"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/register"
+                  className="text-gray-700 hover:text-blue-600 font-medium underline underline-offset-4"
+                >
+                  Register
+                </Link>
+                <Link
+                  to="/login"
+                  className="text-gray-700 hover:text-blue-600 font-medium underline underline-offset-4"
+                >
+                  Login
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

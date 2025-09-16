@@ -10,6 +10,8 @@ import Login from "./components/Login";
 import Store from "./Store";
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
+import Profile from "./components/Profile";
+import VerifyEmail from "./components/VerifyEmail";
 
 const images = [
   "/images/000380330011.jpg",
@@ -490,7 +492,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/manage" element={<ImageManager />} />
+          <Route path="/upload" element={<ImageManager />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route
             path="*"

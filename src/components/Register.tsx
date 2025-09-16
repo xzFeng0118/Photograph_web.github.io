@@ -9,23 +9,32 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleSubmit = async () => {
     setError('');
     if (password !== confirmPassword) {
-      setError('两次密码不一致');
+      setError('Passwords do not match');
       return;
     }
     if (password.length < 8) {
-      setError('密码至少 8 位');
+      setError('Password must be at least 8 characters');
       return;
     }
     setLoading(true);
     try {
-      await axios.post(`${API_BASE_URL}/api/auth/register`, { email, password });
-      window.location.href = '/login';
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, { email, password });
+      
+      // Show registration success and email verification message
+      setError('');
+      setSuccess(response.data.message);
+      
+      // Redirect to verification page after 3 seconds
+      setTimeout(() => {
+        window.location.href = '/verify-email';
+      }, 3000);
     } catch (e: any) {
-      const message = e?.response?.data?.message || '注册失败';
+      const message = e?.response?.data?.message || 'Registration failed';
       setError(message);
     } finally {
       setLoading(false);
@@ -69,6 +78,17 @@ const Register = () => {
               />
             </div>
             {error && <p className="text-red-600 text-sm">{error}</p>}
+            {success && (
+              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {success}
+                </div>
+                <p className="text-sm mt-2">Redirecting to email verification page in 3 seconds...</p>
+              </div>
+            )}
             <button
               type="submit"
               disabled={loading}
